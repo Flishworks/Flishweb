@@ -1,0 +1,84 @@
+ #titleImage{
+  max-width:300px;
+}
+  
+#content{
+  text-align:left;
+  font-size: 14pt;
+  padding: 15px;
+  background-color: rgba(200,200,200,.75);
+  width: 65%;
+  margin: auto;
+  border-radius: 25px;
+  margin-top: 15px;
+  color: rgb(50,50,50);
+  }
+
+
+#p5canvas{
+  position:absolute;
+  top: 0px; 
+  z-index: -10;
+}
+
+.Project{
+
+}
+
+.thumbnailLink{
+
+position: relative;
+display: inline-block;
+width: 100px;
+Height: 100px;
+text-align:left;
+border-radius: 50%;
+overflow: hidden;
+}
+
+.thumbnailLink:hover{
+width: 120px;
+Height: 120px;
+}
+
+.thumbnailPic{
+position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 200%;
+  width: auto;
+  -webkit-transform: translate(-40%,-40%);
+   ;;   -ms-transform: translate(-50%,-50%);
+   ;;       transform: translate(-50%,-50%);
+  pointer-events: none;
+}
+
+.invisibleLink{
+position:absolute;
+width: 0px;
+Height: 0px;
+pointer-events: none;
+cursor: default;
+
+}
+
+.projectText{
+  display: inline-block;
+  Height: 300px;
+  vertical-align: top;
+  }
+  
+.projectPic{
+  display: inline-block;
+  }
+ 
+.projectTitle{
+color: rgb(200,75,0)
+}
+
+h2{
+  color: rgb(0,70,100)
+  }
+h2.project{
+  color: #ba6900
+  }

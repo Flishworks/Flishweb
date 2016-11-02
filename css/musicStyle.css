@@ -1,0 +1,19 @@
+
+#soundCloudPlay{
+margin: auto;
+top: 120px;
+width:75%;
+height:600px;
+scrolling: no; 
+frameborder:no;
+display: block;
+  }
+  
+  #titleImage{
+  max-width:300px;
+}
+
+.thumbnails{
+display:inline-block;
+width: 150px;
+  }

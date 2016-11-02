@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <title class=Title>Avi's Nonsense</title>
+  
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+   
+  <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,900' rel='stylesheet' type='text/css'>
+  <script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script> <!-- JQuery color library -->
+  <script type="text/javascript" src="js/script.js"></script>
+ 
+  <script src="js/processing.min.js"></script>
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<!--Title Block-->
+<body>
+
+<canvas id="processing-canvas"> </canvas>
+    <div id="headBox">
+      <img id="titleImage" src="img/Title5.png" />
+      <div id="header">
+        <h3 id="links"> 
+          <a class="navigator" href="Drawings.html">Drawings</a>
+          <a class="navigator" href="Paintings.html">Paintings</a>
+          <a class="navigator" href="Poems.php">Poems</a>
+          <a class="navigator" href="Music.html">Music</a>
+          <a class="navigator" href="Projects.html">Projects</a>
+          <a class="navigator" href="AboutMe.html">About Me</a>
+        </h3>
+      </div>
+    </div>
+
+<script type="text/processing" data-processing-target="processing-canvas">
+int i = 0;
+float fillColor;
+float fillPrev;
+float scrnWdth;
+float scrnHght;
+int numSqrs=40;
+int framerate=10;
+boolean ColorFlag=false;
+
+void setup(){
+  frameRate(framerate);
+  scrnWdth=$(window).width();
+  scrnHght=$(window).height();
+  size(scrnWdth,scrnHght);
+  rectMode(CENTER);
+  noStroke();
+}
+void draw(){
+  i=i+30/framerate;
+  background(0);
+  for(int j = numSqrs; j >0 ; j--) {
+    pushMatrix();
+    translate(width/2, height/2);
+    rotate(PI/100*i/j);
+    getFill(i,j);
+    rect(0, 0, scrnWdth*sqrt(2)/numSqrs*j,scrnWdth*sqrt(2)/numSqrs*j, 7);
+    popMatrix();
+  }
+}
+void getFill(int eye, int jay){
+  int i=eye;
+  int j=jay;
+  if (!ColorFlag){ 
+  fill(255/2*(sin(TWO_PI/1000*(i+(mouseY-50)/4*j))+1),255-255*mouseX/(scrnWdth)); // inner term, mouseY, controls the period of the black/white gradient. mouseX portion controls intensity
+  }
+  else{
+    float red=125*(sin(TWO_PI/1000*(i+(mouseY/4-75)/4*j))+1);
+    float blue = 125*(sin(TWO_PI/1000*(i+(mouseX/4-75)/4*j))+1);
+     fill(red,255-red,blue); // inner term, mouseY, controls the period of the black/white gradient. mouseX portion controls intensity
+  }
+}
+void mouseClicked() {
+  if ((mouseX<scrnWdth/2+10)&&(mouseX>scrnWdth/2-10)&&(mouseY<scrnHght+10)&&(mouseX>scrnWdth/2-10)) {
+  ColorFlag=!ColorFlag;
+  }
+}
+</script>
+
+
+</body>
+</html>

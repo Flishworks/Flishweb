@@ -1,0 +1,277 @@
+<head>
+  <script src="js/processing.min.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <link href="css/projectPageStyle.css" rel="stylesheet" type="text/css" />
+ 
+ <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,900' rel='stylesheet' type='text/css'>
+  <script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script> <!-- JQuery color library -->
+  <script type="text/javascript" src="js/script.js"></script> <!--my script-->
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <link href="css/gearStyle.css" rel="stylesheet" type="text/css" />
+ </head>
+
+<!--Title Block-->
+<body>
+
+<!--Title Block-->
+<div id="headBox">
+      <img id="titleImage" src="img/Title5.png" href="index.html"/>
+      <div id="header">
+        <h2 id="pageTitle">Gear Slider</h2>
+        <h3 id="links"> 
+          <a class="navigator" href="Projects.html">Back to Projects</a>
+        </h3>
+      </div>
+    </div>
+    
+<canvas id="processing-canvas"> </canvas>
+
+
+<div id="content"> 
+  Did you know, not all scramble possibilities are solvable? I did not incorporate a <a class="contentLink" href="https://www.cs.bham.ac.uk/~mdr/teaching/modules04/java2/TilesSolvability.html" target="_blank">solvability checker</a>. Have fun! 
+  </p>
+  </p> 
+  Note: This page doesn't work on Internet Explorer. If you don't see a scrambled gear, please try a better browser.
+  </div>
+
+<script type="text/processing" data-processing-target="processing-canvas">
+square[] peices= new square[9];
+square emptySquare = new square(); //square to leave blank
+PGraphics peiceImage;//full bacground
+//PImage[] peiceImagePeice=new PImage[9];//peice of background
+final float minNumberOfTeeth=3;
+final float maxNumberOfTeeth=30;
+boolean mouse = true;//does the gear respond to mouse or not?
+float timeRotationAngle=0;//for auto gear rotation
+int[] randomPos= new int [9]; //initialize shuffled number array
+
+//initialize screen
+if (window.innerWidth<400){//change size to fullscreen for small screens
+scrnWdth=int(window.innerWidth);
+scrnHght=int(window.innerHeight-140);
+}
+else{ //make it square for big screens
+scrnWdth=int(window.innerHeight-140);
+scrnHght=int(window.innerHeight-140);
+}
+size(scrnWdth, scrnHght);
+
+int buffer=50; //buffer for checking if squares are alighned
+
+void setup() {
+frameRate(10);
+emptySquare.xPos= int(width/6);
+emptySquare.yPos= int(height/6);
+emptySquare.ID=0;
+
+peiceImage = createGraphics(width, height); //render offscreen graphics for image on peices
+shufflePeice();//get rendom number list
+  for (int i = 1; i < 9; i++) { //establish matrix
+      peices[i] = new square(i);
+    }
+  rectMode(CENTER);
+  fill(0);
+  
+  //set up text for image
+  peiceImage.textSize(50);
+  peiceImage.textAlign(CENTER);
+}
+ 
+void draw(){
+  renderPeiceImage();
+  background(0);
+  scrambleImage();
+  highlightSquare(); //highlight  the mouse over square
+  winCheck();
+  for (int i = 1; i < 9; i++) {
+        if (peices[i].moving=true){
+        peices[i].move();
+        //peices[i].display();
+        }
+      }
+ //fill(255,0,0);
+ //text(emptySquare.xPos, 10, 10);
+ //text(emptySquare.yPos, 10, 20);
+ //text(peices[1].destX, 70, 10);
+ //text(peices[1].destY, 70, 20);
+ //text(peices[3].destX, 10, 50);
+ //text(peices[3].destY, 10, 60);
+ 
+
+}
+
+void renderPeiceImage(){ //render the image for the peices
+  peiceImage.beginDraw();
+  peiceImage.background(0);
+  drawGear();
+  
+ //displays an overlaying message lik e"Page under construction"
+  peiceImage.fill(200, 140, 50);
+  //peiceImage.text("This page is under construction.", width/2, height/2); 
+
+  peiceImage.endDraw();
+  
+}
+
+void shufflePeice(){
+   for (int i = 1; i < 9; i++) {
+    randomPos[i]=i;
+  }
+     //fisher yates shuffle
+    for (int i = 1; i < 7; i++) {
+    int j = int(random(1,9-i));
+    int tempPos=randomPos[i];
+    randomPos[i]=randomPos[j+i];
+    randomPos[j+i]=tempPos;
+  } 
+}
+
+void scrambleImage(){ //cuts up peiceImage and di[plays the peices over each peice
+for (int i = 1; i < 9; i++) {
+    int eye=int(randomPos[i]%3);
+    int j=int(floor(randomPos[i]/3));
+    int xPos = int( width/3*(eye+1)-width/3);
+    int yPos = int( height/3*(j+1)-height/3);
+    //peiceImage.copy(xPos, yPos, width/3, height/3, peices[i].xPos-width/6, peices[i].yPos-height/6, peices[i].wdth, peices[i].hgth);
+    //peiceImagePeice[i]=peiceImage.get(xPos, yPos, width/3, height/3);
+    image(peiceImage.get(xPos, yPos, width/3, height/3),peices[i].xPos-width/6, peices[i].yPos-height/6);
+  }
+}
+
+void highlightSquare(){
+  for (int i = 1; i < 9; i++) {
+  if (mouseHover(i)){
+    fill(255,50);
+    peices[i].display();
+   }
+ }
+}
+
+void winCheck(){
+//uggh
+}
+
+boolean mouseHover(int i){
+  if ((abs(mouseX-peices[i].xPos)<peices[i].wdth/2)&&(abs(mouseY-peices[i].yPos)<peices[i].hgth/2)){
+        return(true);}
+        else{ return(false);}
+}
+
+void drawGear()
+{ 
+  float radio=height/3; //radius of gear
+  float teethHeight=height/35; 
+  float centerPositionX=width/2;
+  float centerPositionY=height/2;
+  float numberOfTeeth=radio/5; 
+  numberOfTeeth=constrain(numberOfTeeth, minNumberOfTeeth, maxNumberOfTeeth);
+  float teethAngle=TWO_PI/numberOfTeeth;
+  float teethWidth=sin(teethAngle/2)*radio; 
+  float lineY=radio+teethHeight-2;//cos(teethAngle/2)*radio+teethHeight;
+  peiceImage.pushMatrix();
+    peiceImage.translate(centerPositionX, centerPositionY);
+    if (mouse){peiceImage.rotate(atan2(mouseY-height/2,mouseX-width/2)+PI/2);}
+    else {
+      timeRotationAngle=timeRotationAngle+.003;
+      peiceImage.rotate(timeRotationAngle);
+      }
+    peiceImage.fill(255);
+    peiceImage.stroke(255);
+    peiceImage.strokeWeight(1);
+    for (float i=0; i<numberOfTeeth; i++)
+    {  
+      peiceImage.rotate(teethAngle); 
+      peiceImage.triangle(-3*teethWidth/4, -lineY+teethHeight, teethWidth/2, -lineY+teethHeight, -teethWidth/2, -lineY);
+      peiceImage.triangle(teethWidth/4, -lineY, -teethWidth/2, -lineY, teethWidth/2, -lineY+teethHeight);
+      peiceImage.line(-teethWidth/2, -lineY, teethWidth/2, -lineY+teethHeight);
+    }
+    peiceImage.ellipse(0, 0, 2*radio, 2*radio) ; //gear body
+    peiceImage.fill(0);
+    peiceImage.noStroke();
+    peiceImage.ellipse(0, 0, radio/4, radio/4);//Shaft hole
+    peiceImage.rect(-radio/40, -radio/10, radio/20, -radio/10);//shaft key
+  peiceImage.popMatrix();
+}
+
+void mouseClicked() {
+  for (int i = 1; i < 9; i++) {
+     if (mouseHover(i)){
+        if (!peices[i].moving){ //if peice isnt already moving
+        //ensure it is a bordering (but not diagnal) square
+         //if((((peices[i].destX==(emptySquare.xPos+peices[i].wdth))||(peices[i].destX==(emptySquare.xPos-peices[i].wdth)))&&(peices[i].destY==emptySquare.yPos)) || (((peices[i].destY==(emptySquare.yPos+peices[i].hgth))||(peices[i].destY==(emptySquare.yPos-peices[i].hgth)))&&(peices[i].destX==emptySquare.xPos))){
+          //if((((peices[i].destX<(emptySquare.xPos+peices[i].wdth+buffer)&&peices[i].destX>(emptySquare.xPos+peices[i].wdth-buffer))||(peices[i].destX<(emptySquare.xPos-peices[i].wdth+buffer)&&peices[i].destX>(emptySquare.xPos-peices[i].wdth-buffer)))&&((peices[i].destY<emptySquare.yPos+buffer)&&(peices[i].destY>emptySquare.yPos-buffer)))||(((peices[i].destY<(emptySquare.yPos+peices[i].hgth+buffer)&&peices[i].destY>(emptySquare.yPos+peices[i].hgth-buffer))||(peices[i].destY<(emptySquare.yPos-peices[i].hgth+buffer)&&peices[i].destY>(emptySquare.yPos-peices[i].hgth-buffer)))&&((peices[i].destY<emptySquare.yPos+buffer)&&(peices[i].destY>emptySquare.yPos-buffer)))){                                                                                                                                                                                                                                                                
+           //fuck yea
+           if (((abs(peices[i].xPos-emptySquare.xPos)<(peices[i].wdth+buffer))&&(abs(peices[i].yPos-emptySquare.yPos)<buffer))||((abs(peices[i].yPos-emptySquare.yPos)<(peices[i].hgth+buffer))&&(abs(peices[i].xPos-emptySquare.xPos)<buffer))){
+           peices[i].oldDestX=peices[i].destX;
+           peices[i].oldDestY=peices[i].destY;
+           peices[i].destX=emptySquare.xPos;
+           peices[i].destY=emptySquare.yPos;
+           emptySquare.xPos=peices[i].oldDestX;
+           emptySquare.yPos=peices[i].oldDestY;
+           emptySquare.ID=i;
+           peices[i].moving=true;
+          
+           }
+         }
+        }
+      }
+    }
+class square {
+  int xPos; //x position of center of square
+  int yPos; //y position of center of square
+  int ID;
+  int wdth;
+  int hgth;
+  int i;
+  int j;
+  int destX;
+  int destY;
+  int oldDestX;
+  int oldDestY;
+  int speed = 30;
+    
+  boolean moving=false;
+  
+ //constructor
+  square(int eye) {
+    i=int(eye%3);
+    j=int(floor(eye/3));
+    xPos = int(width/3*(i+1)-width/6);
+    yPos = int(height/3*(j+1)-height/6);
+    destX=int(xPos);
+    destY=int(yPos);
+    wdth=int(width/3);
+    hgth=int(height/3);
+    ID=eye;
+     if (scrnWdth < 400){
+   speed = scrnWdth/6;
+   }
+  }
+
+  
+  void move () { //<>// //<>//
+  
+   if (abs(destX-xPos)>speed/2){ //if block is within range(prevents block jitter from speed)
+    xPos=int(xPos+(destX-xPos)/abs(destX-xPos)*speed);
+    }
+   else if (abs(destY-yPos)>speed/2){
+    yPos=int(yPos+(destY-yPos)/abs(destY-yPos)*speed);
+   }
+   else {
+   moving=false; //reset moving flag indicating arrival
+   xPos=int(destX);
+   yPos=int(destY);
+   }   
+  } //<>// //<>//
+ 
+  void display() {
+     rect(xPos, yPos,  wdth, hgth);
+  }
+}
+</script>
+
+
+
+
+</body>
+</html>

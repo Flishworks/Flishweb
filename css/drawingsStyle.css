@@ -1,0 +1,37 @@
+
+.thumbnailContainer{
+position: relative;
+top: 50px;
+
+  }
+  
+
+
+.thumbnails{
+display:inline-block;
+width: 130px;
+Height: 130px;
+min-width: 100px;
+text-align:center;
+border-radius: 50%;
+  }
+ 
+.thumbnailPic{
+display:inline-block;
+width: 130px;
+Height: 130px;
+min-width: 100px;
+text-align:center;
+border-radius: 50%;
+pointer-events: none;
+  }
+   
+
+
+#titleImage{ 
+  max-width:300px;
+}
+
+.subtitle{
+font-size:12pt;
+}

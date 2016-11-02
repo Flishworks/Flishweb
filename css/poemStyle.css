@@ -1,0 +1,233 @@
+@font-face {
+font-family: typewriter;
+src: url(font/typewriter.ttf);
+}
+
+@font-face {
+font-family: bettynoir;
+src: url(font/bettynoir.ttf);
+}
+
+@font-face {
+font-family: dayposterblack;
+src: url(font/dayposterblack.ttf);
+}
+
+html{
+  min-height: 100%;
+}
+body {
+  position: relative;
+  margin: 0px;
+  padding: 0px;
+  background-image: url("../img/polkaDots3.png") !important;
+  background-repeat: repeat;
+  min-height:100%;
+}
+
+div.canvas {
+  background-image: url("../img/canvas.png") !important;
+  opacity:    0.2;
+  background: rgba(0,0,0,.8);
+  width:      100%;
+  height:     102%;  
+  z-index:    1;
+  top:        0; 
+  left:       0; 
+  position:   absolute; 
+  pointer-events:none; 
+  overflow-y: hidden;
+}
+
+#headBox {
+  padding-top: 0px;
+  position: relative;
+  width: 100%;
+  height: 100px;
+  background-color: rgb(50,50,50);
+  color: rgb(255,220,220)
+}
+
+#pageTitle {
+  display: inline;
+  font-family: bettynoir, sans-serif;
+  font-size: 110px;
+  padding: 15px;
+  text-shadow: 4px 4px rgb(50,50,50);
+}
+
+#header {
+position: absolute;
+text-align: left;
+bottom: 10px;
+display: inline;
+
+}
+
+#links {
+  display: inline;
+  text-decoration: none;
+  font-family: dayposterblack;
+  font-size: 18pt;
+}
+
+.navigator{
+  color: rgb(255,220,220);
+  padding: 5px 15px 5px 15px;
+  border-radius: 10px;
+}
+
+#poemBoxContainer{ 
+position: relative;
+margin-top: 50px;
+padding: 5px;
+border-radius: 5em;
+}
+
+#poemBox{
+  position: relative;
+  border: 20px solid rgb(50,50,50);
+  min-height: 800px;
+  border-radius: 4em;
+  text-align: left;
+  font-family: 'typewriter', 'Titillium Web', sans-serif;
+  font-size: 20pt;
+  font-weight:400;
+  padding: 30px;
+  background-color: rgb(255,220,220);
+}
+
+
+#sideColumn{
+  font-family:'dayposterblack', 'Titillium Web', sans-serif;
+  font-size: 30pt;
+  margin-top: 30px;
+  bottom: 0px;
+  text-shadow: 4px 4px rgb(255,220,220);
+  
+}
+
+#addPoemButton{
+  
+  font-family:'dayposterblack', 'Titillium Web', sans-serif;
+  font-size: 18pt;
+  margin-top: 10px;
+  bottom: 0px;
+  position: inline;
+  width: 130px;
+  background-color: rgb(255,220,220);
+  text-align: center;
+  cursor: pointer;
+  border: 5px solid rgb(50,50,50);
+  border-radius: 10px;}
+
+#scrollPoems{
+
+font-size: 20pt;
+padding-top: 0px;
+overflow-y: scroll;
+padding-left: 30px;
+height: 380px;
+background-color: rgba(255,255,255,.7)!important;
+}
+
+.poemLinks{
+display: block;
+text-align: left;
+padding: 15px;
+color: rgb(50,50,50);
+width: 100%;
+cursor: pointer;
+}
+
+.loadDBpoem
+{
+display: block;
+text-align: left;
+padding: 15px;
+color: rgb(50,50,50);
+width: 100%;
+cursor: pointer;
+}
+
+#poemTitle{
+}
+
+#poemText{
+  margin: auto;
+  max-width: 50%;
+  min-heightheight:50px;
+  background-color:black;
+}
+
+
+#foot{
+bottom: 10px;
+margin: 0px;
+padding: 0px;
+position: absolute;
+width: 100%;
+Height: 0px;
+}
+
+#retroMan{
+ width: 100%;
+ max-width:300px;
+ position: absolute;
+ left: 0px;
+ bottom: 0px;
+ z-index: -1;
+}
+
+#retroWoman{
+  width: 100%;
+  max-width:300px;
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  
+  z-index: -1;
+}
+
+#triangleOuterLeft{
+position: absolute;
+width: 0;
+height: 0;
+border-style: solid;
+border-width: 50px 150px 50px 0;
+border-color: transparent rgb(50,50,50) transparent transparent;
+bottom: 85px;
+left: -125px;
+}
+
+#triangleInnerLeft{
+position: relative;
+width: 0;
+height: 0;
+border-style: solid;
+border-width: 30px 110px 30px 0;
+border-color: transparent rgb(255,220,220) transparent transparent;
+right: -40px;
+bottom: 30px;
+}
+#triangleOuterRight{
+position: absolute;
+width: 0;
+height: 0;
+border-style: solid;
+border-width: 50px 0 50px  150px;
+border-color: transparent transparent transparent rgb(50,50,50);
+bottom: 85px;
+Right: -125px;
+}
+
+#triangleInnerRight{
+position: relative;
+width: 0;
+height: 0;
+border-style: solid;
+border-width: 30px 0 30px 110px;
+border-color: transparent transparent transparent rgb(255,220,220);
+Left: -160px;
+bottom: 30px;
+}
