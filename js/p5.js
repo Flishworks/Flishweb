@@ -8806,7 +8806,7 @@ var p5 = function(sketch, node, sync) {
       var loadingScreen = document.getElementById(this._loadingScreenId);
       if(!loadingScreen){
         loadingScreen = document.createElement('div');
-        loadingScreen.innerHTML = 'Loading...';
+        loadingScreen.innerHTML = '<h1>Loading.</h1><h2>Please be patient. Cool things are on their way.</h2><h4>If it takes longer than a minute, you\'ve been waiting to long. You might have a terrible connection, or you may be using a lame browser. Try chrome.</h4>';
         loadingScreen.style.position = 'absolute';
         loadingScreen.id = this._loadingScreenId;
         var node = this._userNode || document.body;
@@ -29772,8 +29772,9 @@ p5.Matrix.prototype.inverseTranspose = function (matrix){
     this.mat3[7] = matrix.mat4[9];
     this.mat3[8] = matrix.mat4[10];
   }
-
-  this.invert3x3().transpose3x3(this.mat3);
+  if(this.invert3x3()!== null){
+    this.invert3x3().transpose3x3(this.mat3);
+  }
   return this;
 };
 

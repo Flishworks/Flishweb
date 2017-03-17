@@ -1,12 +1,12 @@
 //change link color on mouse over
 
 $(document).ready(function() {
-  $("a").mouseenter(function() { 
+  /*$("a").mouseenter(function() { 
     $(this).stop().animate({backgroundColor: "rgba(220, 230, 240, 0.7)"}, 300) 
     });
     
   $("a").mouseout(function() { $(this).stop().animate({backgroundColor: "rgba(0, 0, 0, 0)"}, 300) });
-
+*/
 
 //responsive web layout for small screens 
 if ($(window).width() < 600){ 

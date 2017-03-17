@@ -29,7 +29,7 @@ function setup() {
     enable=false;
     }
     
-  mouse = loadImage("img/mouse.png");
+  mouse = loadImage("../img/mouse.png");
   scoreBox = new Box(width/2,height/2,50);
   speed = [numMouse];
   for (var i = 1; i<numMouse;i++){
@@ -158,7 +158,7 @@ function draw(){
 }
 
 function boundary(){
-  var thickness=5;
+  var thickness=10;
   rect(thickness,height/2,2*thickness,height);
   rect(width-thickness,height/2,2*thickness,height);
   rect(width/2,thickness,width,2*thickness);

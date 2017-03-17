@@ -10,13 +10,15 @@ function setup() {
 frameRate(24);
 background(100);
 numNodes=random(4,7);
+var height=getDocHeight();
+height=constrain(height,300,2000);
   var myCanvas = createCanvas(getDocWidth(), getDocHeight());
   myCanvas.parent("p5canvas");  //puts canvas in the p5canvas div
   stroke(100,random(100,200),random(100,150));
   strokeWeight(4);
   
   for (var i=0; i < numNodes; i++){
-    nodes[i]=new Satellite(floor(random(-.2*width,width+.2*width)),floor(random(0,.5*height)),0,0,random(100,300),false,i); //create Nodes
+    nodes[i]=new Satellite(floor(random(-.2*width,width+.2*width)),floor(random(100,.5*height)),0,0,random(100,300),false,i); //create Nodes
     //nodeColors[i]=color(100,random(100,200),random(100,150));
   } 
   
@@ -66,7 +68,7 @@ function draw() {
           this.acceleration.y=nodes[i].mass*g*this.direction.y/(this.distance);
      
     //forces
-          if(this.distance>height){
+          if(this.distance>width/2){
             this.nextVelocity.add(this.acceleration);}
           else{
             this.nextVelocity.sub(this.acceleration);
