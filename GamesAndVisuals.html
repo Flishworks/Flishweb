@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!--specifies compatibility with most recent version of IE>-->
+	<meta name="viewport" content="width=device-width, initial-scale=1"> <!-- something for mobile device zooming -->
+	<meta charset="UTF-8">  <!-- specify character set. this is probably defaulted anyway -->
+	<title class=Title>Games and Visuals</title> <!--title on page tab -->
+		
+	<!--links for slimbox-->
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script type="text/javascript" src="js/slimbox2.js"></script>
+	<link rel="stylesheet" href="css/slimbox2.css" type="text/css" media="screen" />
+  
+  <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,900' rel='stylesheet' type='text/css'>
+  <script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script> <!-- JQuery color library -->
+  <script type="text/javascript" src="js/script.js"></script> <!--my script-->
+  
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <link href="css/projectStyle.css" rel="stylesheet" type="text/css" />
+ 
+ <!--background animation-->
+ <script src="js/p5.min.js"></script>
+ <script language="javascript" type="text/javascript" src="js/dancingGeoScript.js"></script>
+  <!-- uncomment lines below to include extra p5 libraries -->
+  <!--<script language="javascript" src="libraries/p5.dom.js"></script>-->
+  <!--<script language="javascript" src="libraries/p5.sound.js"></script>-->
+  <!-- this line removes any default padding and style. you might only need one of these values set. -->
+  
+</head>
+
+
+<body>
+
+<!--Title Block-->
+  <div id="headBox">
+      <img id="titleImage" src="img/Title5.png" href="index.html"/>
+      <div id="header">
+        <h2 id="pageTitle">Games and Visuals</h2>
+        <h3 id="links"> 
+          <a class="navigator" href="index.html">Home</a>
+          <a class="navigator" href="Projects.html">Projects</a>
+          <a class="navigator" href="AboutMe.html">About Me</a>
+        </h3>
+      </div>
+  </div>
+
+    <div id="content">	
+      <h2>Below are some of the visual programming projects I've done in recent years. Some are meant to be viewed, some are meant to be played. Enjoy!</h2>
+        
+        <div class="project">
+          <h2 class="project">
+            <a class="contentLink" href="gamesAndVisuals/wavePool.html">
+              Wave Pool - 2017</P>
+              <img class="visualThumbs" src="gamesAndVisuals/wavePool.jpg" alt="a wavy visual">
+            </a>
+          </h2>
+          This is the visual from the home page. This one required some math review.
+        </div>
+        
+        <div class="project"> 
+        <h2 class="project">
+          <a class="contentLink" href="gamesAndVisuals/soundMandala.html">
+            Audio Mandala - 2016</P>
+            <img class="visualThumbs" src="gamesAndVisuals/audioMandalaPic.jpg" alt="a sound modulated mandala generator">
+          </a>
+        </h2>
+          An interactive music visualizer. Perhaps the largest program I have written.
+        </div>
+        
+        <div class="project">
+          <h2 class="project">
+            <a class="contentLink" target="_blank" href="gamesAndVisuals/mouseGame.html">
+              Mouse Game - 2016</P>
+               <img class="visualThumbs" src="gamesAndVisuals/mouseGame.jpg" alt="a game of many mouse cursurs">
+            </a>
+          </h2>
+          Good luck! (This will not work on touch devices)
+        </div> 
+        
+        <div class="project">
+          <h2 class="project">
+            <a class="contentLink" href="gamesAndVisuals/gravityGame.html">
+              Orbital - 2016</P>
+              <img class="visualThumbs" src="gamesAndVisuals/gravityGame.jpg" alt="a game of gravity and orbits">
+            </a>
+          </h2>
+          A game of launching planets into orbit.
+        </div>
+        
+        <div class="project">
+          <h2 class="project">
+            <a class="contentLink" href="gamesAndVisuals/hyperSphere.html">
+              Hyper Sphere - 2016</P>
+              <img class="visualThumbs" src="gamesAndVisuals/hypersphere.jpg" alt="an impossible shape">
+            </a>
+          </h2>
+          An impossible shape.
+        </div>
+        
+        <div class="project">
+          <h2 class="project">
+            <a class="contentLink" href="gamesAndVisuals/colorGame.html">
+              Color Game - 2015</P>
+              <img class="visualThumbs" src="gamesAndVisuals/colorGame.jpg" alt="a game of color mixing and matching">
+            </a>
+          </h2>
+          A simple but  tricky game of color combinations.
+        </div>
+        
+        <div class="project">
+          <h2 class="project">
+            <a class="contentLink" href="gamesAndVisuals/GearSlider.html">
+              Gear Slider - 2015</P>
+              <img class="visualThumbs" src="gamesAndVisuals/gearSlider.jpg" alt="an animated slide puzzle">
+            </a>
+          </h2>
+          A classic slider puzzle with animated graphics.
+        </div>
+        
+        <div class="project">
+        <h2 class="project">
+          <a class="contentLink" href="gamesAndVisuals/squares.html">
+            Dancing Squares - 2015</P>
+            <img class="visualThumbs" src="gamesAndVisuals/squares.jpg" alt="a cascading rotation of squares">
+          </a>
+        </h2>
+          A simple visual of rotating squares.
+        </div>
+    </div>
+    <div id="p5canvas"></div>
+    
+         <!--for facebook comments-->
+    <div id="comments">
+       <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+       <div class="fb-comments" data-href="https://Avikazen.com/GamesAndVisuals.HTML" data-width="100%" data-numposts="5"></div>
+     </div>
+     
+  </body>
+</html>

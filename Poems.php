@@ -29,6 +29,7 @@
             <a class="navigator" href="Paintings.html">Paintings</a>
             <a class="navigator" href="Music.html">Music</a>
             <a class="navigator" href="Projects.html">Projects</a>
+            <a class="navigator" href="GamesAndVisuals.html">Games and Visuals</a>
             <a class="navigator" href="AboutMe.html">About Me</a>
            
           </h3>
@@ -42,7 +43,6 @@
 
           <a class="poemLinks">A Thousand Words</a>
           <a class="poemLinks">Bucksot Forget Me Nots</a>
-          <a class="poemLinks">Leave Us Free</a>
           <a class="poemLinks">Stone Cold Cutlery</a>
           <a class="poemLinks">Empathy</a>
           <a class="poemLinks">Entropy</a>
@@ -50,16 +50,18 @@
           <a class="poemLinks">Toothpicks</a>
           <a class="poemLinks">Slow Leak</a>
           <a class="poemLinks">Crash</a>
-          <a class="poemLinks">Lost In You</a>
           <a class="poemLinks">Dust Collection</a>
           <a class="poemLinks">The Family</a>
           <a class="poemLinks">Never Was</a>
+          <a class="poemLinks">Anonymous Wax</a>
           <a class="poemLinks">Beautiful Things</a>
           <a class="poemLinks">Steep Dive</a>
           <a class="poemLinks">Broken Tongue</a>
+          <a class="poemLinks">Leave Us Free</a>
           <a class="poemLinks">Naked</a>
           <a class="poemLinks">Rubber Cement and Popsicle Sticks</a>
           <a class="poemLinks">Drive</a>
+          <a class="poemLinks">Collective Duality</a>
           <a class="poemLinks">Shell</a>
           <a class="poemLinks">Cold Water</a>
           <a class="poemLinks">Style</a>
@@ -74,15 +76,14 @@
           <a class="poemLinks">Godbone</a>
           <a class="poemLinks">Human by Association</a>
           <a class="poemLinks">City</a>
+          <a class="poemLinks">Lost In You</a>
           <a class="poemLinks">The Boy At The Busstop</a>
           <a class="poemLinks">Toluene Dreams</a>
           <a class="poemLinks">You Are Perfect</a>
           <a class="poemLinks">Self Interest</a>
           <a class="poemLinks">Sleepy</a>
-          <a class="poemLinks">Anonymous Wax</a>
           <a class="poemLinks">The Machine Gun</a>
           <a class="poemLinks">To The Clouds</a>
-          <a class="poemLinks">Collective Duality</a>
           <a class="poemLinks">1234</a>
           <a class="poemLinks">World Citizen</a>
           <a class="poemLinks">Planned Obsolescence</a>
