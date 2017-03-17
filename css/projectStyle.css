@@ -1,4 +1,8 @@
- #titleImage{
+.contentLink{
+padding: 0px;
+}
+
+#titleImage{
   max-width:300px;
 }
   
@@ -25,24 +29,28 @@
 
 }
 
-.thumbnailLink{
+.circuit{
+  position:relative;
+  display: block;
+}
 
-position: relative;
-display: inline-block;
-width: 100px;
-Height: 100px;
-text-align:left;
-border-radius: 50%;
-overflow: hidden;
+.thumbnailLink{
+  position: relative;
+  display: inline-block;
+  width: 100px;
+  Height: 100px;
+  text-align:left;
+  border-radius: 50%;
+  overflow: hidden;
 }
 
 .thumbnailLink:hover{
-width: 120px;
-Height: 120px;
+  width: 120px;
+  Height: 120px;
 }
 
 .thumbnailPic{
-position: absolute;
+  position: absolute;
   left: 50%;
   top: 50%;
   height: 200%;
@@ -52,6 +60,13 @@ position: absolute;
    ;;       transform: translate(-50%,-50%);
   pointer-events: none;
 }
+
+
+.visualThumbs{
+  left: 100px;
+  border-radius: 20px;
+}
+
 
 .invisibleLink{
 position:absolute;
@@ -82,3 +97,15 @@ h2{
 h2.project{
   color: #ba6900
   }
+
+#webStatsMapContainer {
+height: 400px;
+position: relative;
+}
+#webStatsMap {
+position:absolute;
+width:100%;
+text-align:center;
+bottom:0px;
+}
+

@@ -1,0 +1,27 @@
+ #titleImage{
+  max-width:300px;
+  z-index: 10;
+}
+
+body {
+  background-color: rgb(80,80,80);
+  }
+ 
+#p5canvas{
+  /*position: relative;
+  margin: auto;
+  top: -500;*/
+  }
+  
+  
+#instructionText{
+  position: absolute;
+  Padding: 10px;
+  border-radius: 10px;
+  background-color: rgb(50,50,50);
+  z-index:-10;
+  color: rgb(150,150,150);
+  width: 200%;
+}
+  
+#instructions:hover > #instructionText { z-index:10; }

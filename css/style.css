@@ -14,6 +14,13 @@ body {
 
 }
 
+#p5canvas {
+  position:fixed;
+  z-index:-10;
+  top: 0px;
+  
+}
+
 #headBox {
   position:relative;
   width: 100%;
@@ -40,6 +47,7 @@ body {
   bottom: 5px;
   display: inline;
   margin-left: -30px;
+  margin-right: 30px;
 }
 
 #pageTitle {
@@ -78,8 +86,9 @@ a {
   padding: 15px;
 }
 
-a:hover {
+.navigator:hover {
     color: #da8900;
+    backgroundColor: rgba(220, 230, 240, 0.7);
 }
   
 .navigator {
@@ -93,5 +102,42 @@ a:hover {
   padding: 5px 15px 5px 15px;
   border-radius: 10px;
 }
+.contentLink:hover {
+    color: #eaa900;
+    backgroundColor: rgba(220, 230, 240, 0.7);
+}
+
+#webStats {
+position: absolute;
+bottom: -75px;
+right: 0px;
+
+}
+
+#instructionText{
+  position: absolute;
+  top: -1000px;
+  Padding: 10px;
+  border-radius: 10px;
+  background-color: rgb(50,50,50);
+  z-index:-10;
+  color: rgb(150,150,150);
+  width: 200%;
+}
+
+#instructions{
+
+}
   
+#instructions:hover > #instructionText { 
+  z-index:10; 
+  top: 35px;
+}
+  
+  
+#comments{
+  width: 50%;
+  margin: auto;
+  color: rgb(50,50,50);
+}
   

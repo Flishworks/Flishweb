@@ -16,12 +16,22 @@
  
 #p5canvas{
   position:absolute;
-  top: -20px; 
+  top: 5px; 
   z-index: -10;
 }
 
-a {
-  color: #a6a6a6;
-  padding: 5px 15px 5px 15px;
-  border-radius: 10px;
-  }
+  
+.contentLink{
+  padding: 0px;
+  color: #fab900;
+}
+
+.contentLink:hover {
+    color: #ffd900;
+    backgroundColor: rgba(240, 240, 240);
+}
+
+img{
+  border-radius: 25px;
+  width: 50%;
+}
