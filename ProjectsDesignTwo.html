@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!--specifies compatibility with most recent version of IE>-->
+	<meta name="viewport" content="width=device-width, initial-scale=1"> <!-- something for mobile device zooming -->
+	<meta charset="UTF-8">  <!-- specify character set. this is probably defaulted anyway -->
+	<title class=Title>Projects</title> <!--title on page tab -->
+		
+	<!--links for slimbox-->
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script type="text/javascript" src="js/slimbox2.js"></script>
+	<link rel="stylesheet" href="css/slimbox2.css" type="text/css" media="screen" />
+  
+  <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,900' rel='stylesheet' type='text/css'>
+  <script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script> <!-- JQuery color library -->
+  <script type="text/javascript" src="js/script.js"></script> <!--my script-->
+  
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <link href="css/projectStyle.css" rel="stylesheet" type="text/css" />
+ 
+ <!--background animation-->
+ <script src="js/p5.min.js"></script>
+ <script language="javascript" type="text/javascript" src="js/dancingGeoScript.js"></script>
+  <!-- uncomment lines below to include extra p5 libraries -->
+  <!--<script language="javascript" src="libraries/p5.dom.js"></script>-->
+  <!--<script language="javascript" src="libraries/p5.sound.js"></script>-->
+  <!-- this line removes any default padding and style. you might only need one of these values set. -->
+  
+</head>
+
+
+<body>
+
+<!--Title Block-->
+  <div id="headBox">
+      <img id="titleImage" src="img/Title5.png" href="index.html"/>
+      <div id="header">
+        <h2 id="pageTitle">Projects</h2>
+        <h3 id="links"> 
+          <a class="navigator" href="index.html">Home</a>
+          <a class="navigator" href="GamesAndVisuals.html">Games and Visuals</a>
+          <a class="navigator" href="AboutMe.html">About Me</a>
+        </h3>
+      </div>
+  </div>
+
+    <div id="content">	
+      <h2>Welcome to my project blog! Below are links, pictures and descriptions of things that I've built in a roughly reverse chronological order. Enjoy!
+      </h2>
+
+        <iframe src="projectHTML/switcHub.html" height="1000px" width="100%" seemless> ></iframe>
+       
+        <div class="project">
+          <h2 class="project">Light Theramin 2017</h2>
+            This was a quick and dirty project I threw together for a demonstration. It is a theremin like instrument that uses photocells to modulate pitch and volume instead of resonant circuits. While I did come up with this idea on my own, it is certainly not unique. A quick google sarch returns plenty of results for similar projects. However, the other builds I have seen only use one (or more) photocell to modulate only the pitch. A true theremin modulates both pitch and volume. I decided to share this project because the way I accomplish the volume modulation is somewhat clever.
+            </P> The circuit is very simple. I have two photocell/resistor voltage dividers feeding into two analog pins, and a piezo on a digital pin (it doesn't need to be a pwm eneabled pin). The cleverness is in the code, where I bit bang PWM the on-portion of the square (sound) wave to control the volume. This means that I use software to toggle the pin sufficiently faster than a human can hear, adjusting the on to off ratio, for a duration that is half the sound wavelength, then it just sits off for the second half period of the wavelength (and polls the ADC/performs the required calculations). One photocell controls the duty cycle of the bit-banged pwm, the other controls the period of the wavelength. I also reduced the microcontroller's prescaler and used some lower level commands to speed up the routine.
+            </P> It's a stupid little thing but it's defiantly more fun than it should be.
+           </P>
+           <video width="320" height="240" controls><source src="projectPics/lightTheramin/lightTheramin.mp4" type="video/mp4">Your browser does not support the video tag.</video>
+           </P>
+           <P><a class="contentLink" href="https://github.com/Flishworks/lightTheramin/blob/master/lightTheramin.ino" target="_blank" >Here</a> is the code.
+           </P>
+           <a class="thumbnailLink" href="projectPics/lightTheramin/lightTheramin.jpg" rel="lightbox" title="Light Theramin"><img class="thumbnailPic" src="projectPics/lightTheramin/lightTheramin.jpg" alt="A light theramin"></a>
+        </div>
+           
+        <div class="project">
+          <h2 class="project">Various Recent Projects - 2015-2016</h2>
+          I started writing instructables for a few recent projects. Take a look! 
+          </p>
+          <a class="contentLink" href="http://www.instructables.com/id/Solar-Powered-Bike-Frame-Pottery-Wheel/" target="_blank">solar powered, bike frame, pottery wheel</a></P>
+          <a class="contentLink" href="http://www.instructables.com/id/Glowing-LED-Mushroom-Log-Lamp/" target="_blank">color changing LED, bluetooth controlled mushroom lamp</a></P>
+          <a class="contentLink" href="http://www.instructables.com/id/Car-Stereo-Tape-Player-to-Bluetooth-Hack/" target="_blank">bluetooth tape player car stereo hack</a></P>
+          <a class="contentLink" href="http://www.instructables.com/id/Copper-Wall-Lamp/" target="_blank">copper wall lamp</a></P>
+          <a class="contentLink" href="http://www.instructables.com/id/Plant-Lamp-Jam-Stand/" target="_blank">plant lamp</a></P>
+        </div>
+      
+        <div class="project">
+          <h2 class="project">This Website - 2015-Present</h2>
+          Coding is a good winter hobby in Wisconsin. Last winter I decided to start learning web development so I could build this portfolio site. This is an ongoing project, and I am excited to get back into it this winter.
+          This site was written with HTML, CSS, Javascript and a bit of PHP and MySQL. The website is hosted with iPage. I utilized a number of javascript libraries including slimbox for the photos, P5 for the animations and Jquery for various other things. P5 is a javascript implamentation 
+          of the popular "Processing" Java framework, which I have spent a good amount of time playing with. I really like developing interactive visuals and generative art. Be sure to click around!
+        </div>
+      
+        <div class="project">
+          <h2 class="project">Alien Abduction Haunted House - 2014</h2>
+           My friend and I used to throw a mean halloween party. We would go all out with the decorations, making out house haunted. This was, in my opinion, the best of the exhibits (though we had some close runner-ups over the years).
+           </P>
+           The alien was built with chickenwire and expanding foam. The breathing abdomen of the mannequin was built with a pump underneathe the table in a bucket of water that turned on and off every few seconds, filling a bag and then allowing it to drain back trough the pump. This was controlled with the same controls as my rooftop greenhouse (see other project).
+           The moving camera thing was made from an old digital camera. I just took it apart and soldered into the motor that controlled the lense. This was also controlled by the same controller. Then I glued a bunch of other pointless circuit boards/components to it to make it look more intense. It also had a blinking light (which can't be seen in the video).
+           I also went as far as to write an excel macro to generate the alien-looking graphical display on the computer (the blue part, the otherside is the Milkdrop music visualizer). Even the music and sounds in the background were homemade!
+           </P>
+           <iframe width="50%" height="450" src="https://www.youtube.com/embed/02tVDQP2Z0A" frameborder="0" margin="auto" allowfullscreen></iframe>
+        </div>
+        
+        <div class="project">
+          <h2 class="project">Heated jacket - 2014</h2>
+          As an Arizonan, moving to Wisconsin in the winter was terrifying. While shopping for coats
+          at a thrift store, I found a peculiar jacket with wires sticking out. I googled the brand and realized
+          it had built in heating coils! While this jacket is intended for motorcyclists, and to be powered from the motorcycle battery, I decided 
+          to build a battery pack and a controller I could keep in a backpack.
+          The power controller I built using a 555 timer and a MOSFET to implement a simple PWM with a low frequency. A heater does fine at low frequencies, averaging out the heat generated with each pulse.
+          Having a low frequency means less switching time on the MOSFET which allows for higher efficiency and less heat generated in the transistor.
+          My controller also has an on/off switch and a potentiometer to control the PWM duty cycle, and thus the temperature. I also incorporated an indicator light on the sleeve which turns on when 
+          the battery voltage dropps below about 11 volts using a simple zener diode circuit. I used lead acid batteries for the supply, because it is the only battery I have that can supply the current needed.
+          This is stupidly heavy though, and annoying to walk around with. I would like build a lithium ion supply using 18650 batteries at some point, which should be much lighter. 
+          </P>
+          <a class="thumbnailLink" href="projectPics/heatedJacket/1.jpg" rel="lightbox-HeatedJacket" title="power controller"><img class="thumbnailPic" src="projectPics/heatedJacket/1.jpg" alt="heated jacket"></a>
+          <a class="thumbnailLink" href="projectPics/heatedJacket/2.jpg" rel="lightbox-HeatedJacket" title="power pack"><img class="thumbnailPic" src="projectPics/heatedJacket/2.jpg" alt="heated jacket"></a>
+          <a class="thumbnailLink" href="projectPics/heatedJacket/3.jpg" rel="lightbox-HeatedJacket" title="indicator light"><img class="thumbnailPic" src="projectPics/heatedJacket/3.jpg" alt="heated jacket"></a>
+        </div>
+        
+        <div class="project">
+          <h2 class="project">Sensor hacks for Grecycle - 2014</h2>
+          While working at a biodiesel company called Grecycle, I designed several clever sensors.  The first was a hack to read a mechanical flowmeter with a PLC. 
+          Accurate, chemical resistant, digital flowmeters can be upwards of several thousands of dollars. What was interesting to me, 
+          though, was that mechanical meters of similar accuracy were much cheaper, several of which we had on hand. These meters have number 
+          dials that totalize flow. By applying alternating segments of black and white paint over the lowest resolution dial, and using a 95 cent 
+          QRD1114 optical detector and a couple of resistors, I was able to send a pulsed output to the PLC as the dial turned. The counting was then implemented with the PLC.
+          This hack was surprisingly accurate, never missing a count.
+          </p>
+          I also prototyped an interface sensor using a similar technique. This sensor indicates the transition from glycerin to biodiesel while 
+          being pumped from the reaction tank. I built a small, stand alone sensor that mounted to a sight glass flow indicator. A light shines 
+          through the fluid and is received by a photoresistor. An RGB LED changes from red to green at the change in transmittance. The cutoff level is 
+          adjustable via potentiometer. What is unique about this sensor is my unusual circuit to drive the lights. Instead of ordering the right 
+          components, I wanted to use what I had on hand. This meant driving two colors of a common cathode RGB LED with only two NPN transistors. 
+          This meant I had to use the NPNs as high side drivers, and use one to turn the other off in a sort of flip-flop manner. The whole thing was
+          powered from a flashlight. This was just a proof of concept, later to be rebuilt to interface with the PLC (and with the proper components).
+          </P>
+          <a class="thumbnailLink" href="projectPics/grecycleProjects/1.jpg" rel="lightbox-grecycle" title="Mechanical flow totalizer with a simple hack to make a digital output"><img class="thumbnailPic" src="projectPics/grecycleProjects/1.jpg" alt="A PCR machine"></a>
+          <a class="thumbnailLink" href="projectPics/grecycleProjects/2.jpg" rel="lightbox-grecycle" title="Interface detector"><img class="thumbnailPic" src="projectPics/grecycleProjects/2.jpg" alt="A PCR machine"></a>
+        </div>
+        
+        
+        <div class="project">
+          <h2 class="project">Student Biodiesel Pilot Plant - 2012-2014</h2>
+          I lead the construction of a Biodiesel Pilot Plant for several years during my undergraduate career. For the first year or so I worked by myself, lead by faculty mentors.
+          During my senior year I managed a small team of students to help finish it. This involved extensive design, fabrication, plumbing and wiring. I designed, cut and welded 
+          stands, racks, a heating column, a condenser, and a cyclone liquid/air separator. The plumbing involved sourcing and installing valves, gauges, tanks, heaters and electric 
+          and pneumatic pumps for pressurized air, vacuum and hazardous/corrosive liquid applications. I also did almost all of the electrical installation myself, including designing, sourcing and 
+          installing heaters, pumps, power disconnects, sensors and PID controllers. This also included running conduit and wiring single phase and three phase, 110V and 240V lines. 
+          </P>
+           <a class="thumbnailLink" href="projectPics/biodiesel/1.jpg" rel="lightbox-biodiesel" title="Demethylation system"><img class="thumbnailPic" src="projectPics/biodiesel/1.jpg" alt="A biodiesel plant"></a>
+           <a class="thumbnailLink" href="projectPics/biodiesel/2.jpg" rel="lightbox-biodiesel" title="Heating column"><img class="thumbnailPic" src="projectPics/biodiesel/2.jpg" alt="A biodiesel plant"></a>
+           <a class="thumbnailLink" href="projectPics/biodiesel/3.jpg" rel="lightbox-biodiesel" title="Biodiesel plant"><img class="thumbnailPic" src="projectPics/biodiesel/3.jpg" alt="A biodiesel plant"></a>
+           <a class="thumbnailLink" href="projectPics/biodiesel/4.jpg" rel="lightbox-biodiesel" title="Homemade condenser"><img class="thumbnailPic" src="projectPics/biodiesel/4.jpg" alt="A biodiesel plant"></a>
+           <a class="thumbnailLink" href="projectPics/biodiesel/5.jpg" rel="lightbox-biodiesel" title="Reactor tank"><img class="thumbnailPic" src="projectPics/biodiesel/5.jpg" alt="A biodiesel plant"></a>
+           <a class="thumbnailLink" href="projectPics/biodiesel/6.jpg" rel="lightbox-biodiesel" title="Electrical"><img class="thumbnailPic" src="projectPics/biodiesel/6.jpg" alt="A biodiesel plant"></a>
+      </div>
+      
+      
+            <div class="project">
+          <h2 class="project">Brew Controller - 2014</h2>
+          A friend of mine started a brewery equipment company for small scale brewers. He hired me to build him a brew controller box. This box
+          uses off the shelf PID controllers and 240 V contactors to power two seperate heating elements and an impeller. I worked off of his circuit design,
+          but I had to lay out, drill and assemble the box as well as source most of the components. 
+          </P>
+          <a class="thumbnailLink" href="projectPics/brewController/1.jpg" rel="lightbox-brewBox" title="Brew Box"><img class="thumbnailPic" src="projectPics/brewController/1.jpg" alt="A brew controller"></a>
+          <a class="thumbnailLink" href="projectPics/brewController/2.jpg" rel="lightbox-brewBox" title="Brew Box"><img class="thumbnailPic" src="projectPics/brewController/2.jpg" alt="A brew controller"></a>
+          <a class="thumbnailLink" href="projectPics/brewController/3.jpg" rel="lightbox-brewBox" title="Brew Box"><img class="thumbnailPic" src="projectPics/brewController/3.jpg" alt="A brew controller"></a>
+          <a class="thumbnailLink" href="projectPics/brewController/4.jpg" rel="lightbox-brewBox" title="Brew Box"><img class="thumbnailPic" src="projectPics/brewController/4.jpg" alt="A brew controller"></a>
+          <a class="thumbnailLink" href="projectPics/brewController/5.jpg" rel="lightbox-brewBox" title="Brew Box"><img class="thumbnailPic" src="projectPics/brewController/5.jpg" alt="A brew controller"></a>    
+        </div>
+        
+        <div class="project">
+          <h2 class="project">Rooftop Greenhouse - 2013</h2>
+          Yet another interesting Arduino project I did for personal enjoyment was the conversion of my rooftop evaporative cooler into an 
+          automated greenhouse. These coolers are common in hot, dry climates and basically consist of a fan pushing air through a wet pad.
+          Since the cooler isn't used during the winter, and since it has electricity and water lines, it is almost already set up to be a greenhouse!
+          Additionally, it is located on the roof where it can receive the low winter sunlight.
+          
+          My roomate and I removed the motor and fan from the swamp cooler and replaced the pads with double walled, clear panels made from wood and shower curtains. 
+          We built a PVC frame with a wire mesh to hold the plants in individual pots above the water basin. The pump was redirected to each plant with vinyl tubing.
+          I used an Arduino to build a datalogger with three temperature sensors and a relative humidity sensor, allowing me to collect temperature data throughout 
+          the day and night of the internal air, the water and the external air, as well as the humidity.
+          I then used the Arduino to control a relay box I built to switch on lights, a fan and a custom heater built from an old coffee maker to heat the water through the 
+          night. I used the data to adjust the thresholds of the heater and light control to try to maintain a warm enough temperature throughout the night. The plants were happy!
+          </P>
+          <a class="thumbnailLink" href="projectPics/greenhouse/1.jpg" rel="lightbox-greenhouse" title="Swampcooler greenhouse"><img class="thumbnailPic" src="projectPics/greenhouse/1.jpg" alt="A swamp cooler greenhouse"></a>
+          <a class="thumbnailLink" href="projectPics/greenhouse/2.jpg" rel="lightbox-greenhouse" title="Plant rack"><img class="thumbnailPic" src="projectPics/greenhouse/2.jpg" alt="A swamp cooler greenhouse"></a>
+          <a class="thumbnailLink" href="projectPics/greenhouse/3.jpg" rel="lightbox-greenhouse" title="Greenhouse controller"><img class="thumbnailPic" src="projectPics/greenhouse/3.jpg" alt="A swamp cooler greenhouse"></a>
+          <a class="thumbnailLink" href="projectPics/greenhouse/4.jpg" rel="lightbox-greenhouse" title="Happy plants"><img class="thumbnailPic" src="projectPics/greenhouse/4.jpg" alt="A swamp cooler greenhouse"></a>
+          <a class="thumbnailLink" href="projectPics/greenhouse/5.jpg" rel="lightbox-greenhouse" title="Swampcooler greenhouse"><img class="thumbnailPic" src="projectPics/greenhouse/5.jpg" alt="A swamp cooler greenhouse"></a>
+          </div>
+        
+        <div class="project">
+          <h2 class="project">PCR Thermocycler - 2013</h2>
+          For my senior design project, my team and I built a polymerase chain reaction (PCR) machine for DNA amplification.  
+          Our design used a clever and unique approach which was able to run 30 cycles in about 1/6th the time of conventional machines.
+          Basically, our machine moved a needle back and forth through an oil bath with a calibrated temperature gradient across its depth. 
+          The needle, controlled by an Arduino, would cycle through the three temperature stages based on feedback from a TMP35 
+          sensor. The actuation was accomplished using a stepper motor, and the housing was created with a 3D printer. 
+          The machine also included buttons for position calibration and a readout on a computer screen indicating temperature, cycle number and needle 
+          position. I was solely responsible for the programming and circuitry of this project, which went on to win one of only three 
+          $750 awards at design day. 
+          </P>
+          <a class="thumbnailLink" href="projectPics/PCR machine/1.jpg" rel="lightbox-Thermocycler" title="PCR machine"><img class="thumbnailPic" src="projectPics/PCR machine/1.jpg" alt="A PCR machine"></a>
+        </div>
+        
+        <div class="project">
+          <h2 class="project">Shower water harvester - 2013</h2>
+            This was a school project for a course on microcontrollers. The premise here is to save 
+            cold water that would otherwise go down the drain as I wait for it to heat up before I get in. I used a PIC microcontroller 
+            to measure the temperature via a thermistor attached 
+            firmly to the outside of the pipe. The PIC basically acts as a comparator with programmed hysteresis to switch the solenoid valves directing 
+            the water. The cold water flows through a pipe and out the window to a storage tank which is used for my garden, and when the temperature 
+            is high enough the controller switches the valves to let the water flow to the showerhead. The programming was tediously done in assembly language
+            to fulfil the class requirements.          
+            Later I rebuilt the circuit with analogue components, using a comparator with added hysteresis. I improved the design in several other ways 
+            as well; using a solderable breadboard, a larger transistor, and battery power with an LED low charge indicator. I also tried to redesign the 
+            housing by replacing one of the two solenoids with a custom "diverter" valve that I built, which would be closed when the other was open and open when the other was closed, like the handle sprayer in a kitchen sink. it... sort of worked...
+           </P>
+           <a class="thumbnailLink" href="projectPics/showerWaterHarvester/1.jpg" rel="lightbox-waterHarvester" title="Shower water harvester"><img class="thumbnailPic" src="projectPics/showerWaterHarvester/1.jpg" alt="A shower water harvester."></a>
+           <a class="thumbnailLink" href="projectPics/showerWaterHarvester/2.jpg" rel="lightbox-waterHarvester" title="circuit"><img class="thumbnailPic" src="projectPics/showerWaterHarvester/2.jpg" alt="A shower water harvester."></a>
+           <a class="thumbnailLink" href="projectPics/showerWaterHarvester/3.jpg" rel="lightbox-waterHarvester" title="Shower water harvester"><img class="thumbnailPic" src="projectPics/showerWaterHarvester/3.jpg" alt="A shower water harvester."></a>
+           <a class="thumbnailLink" href="projectPics/showerWaterHarvester/4.jpg" rel="lightbox-waterHarvester" title="analog circuit"><img class="thumbnailPic" src="projectPics/showerWaterHarvester/4.jpg" alt="A shower water harvester."></a>
+           <a class="thumbnailLink" href="projectPics/showerWaterHarvester/5.jpg" rel="lightbox-waterHarvester" title="rebuild with diverter"><img class="thumbnailPic" src="projectPics/showerWaterHarvester/5.jpg" alt="A shower water harvester."></a>
+      </div>
+
+            <div class="project">
+          <h2 class="project">The crusher - 2013</h2>
+            I bought a couple of 36 inch linear actuators, the kind used for automatic gates, at a yardsale for about 15 bucks each! Logically, my roommate and I decided to build a bulk can crusher. This baby is capable of smashing 40 cans into a block! 
+            </P>
+           <a class="thumbnailLink" href="projectPics/canCrusher/1.jpg" rel="lightbox-crusher" title="the crusher"><img class="thumbnailPic" src="projectPics/canCrusher/1.jpg" alt="a can crusher"></a>
+           <a class="thumbnailLink" href="projectPics/canCrusher/2.jpg" rel="lightbox-crusher" title="Can block"><img class="thumbnailPic" src="projectPics/canCrusher/2.jpg" alt="A can crusher"></a>
+      </div>
+      <!--
+      <div id="webStatsMapContainer">
+        <div id="webStatsMap">
+          <script id="_waulhv">var _wau = _wau || [];
+          _wau.push(["map", "0jhszsmcy2yi", "lhv", "420", "210", "night", "star-blue"]);
+          (function() {var s=document.createElement("script"); s.async=true;
+          s.src="//widgets.amung.us/map.js";
+          document.getElementsByTagName("head")[0].appendChild(s);
+          })();</script>
+        </div> 
+      </div>
+      -->
+      
+
+
+    </div>
+    <div id="p5canvas"></div> 
+     
+     <!--for facebook comments-->
+    <div id="comments">
+       <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+       <div class="fb-comments" data-href="https://Avikazen.com/Projects.HTML" data-width="100%" data-numposts="5"></div>
+     </div>
+       
+  </body>
+</html>
